@@ -1,8 +1,8 @@
 # Print colorful text
 def cprint(text, **kwargs):
-    kvPairs = {'color': 'white'}
+    options = {'color': 'white'}
     for key, value in kwargs.items():
-        kvPairs[key] = value
+        options[key] = value
 
     colors = {'red': '\033[91m',
               'green': '\033[92m',
@@ -12,13 +12,13 @@ def cprint(text, **kwargs):
               'white': '\033[0m',
               'black': '\033[90m'}
 
-    print(colors[kvPairs['color']] + str(text) + '\033[0m')
+    print(colors[options['color']] + str(text) + '\033[0m')
 
 # Print text with colorful background
 def bprint(text, **kwargs):
-    kvPairs = {'color': 'white'}
+    options = {'color': 'white'}
     for key, value in kwargs.items():
-        kvPairs[key] = value
+        options[key] = value
 
     colors = {'red': '0;30;41',
               'green': '0;30;42',
@@ -27,7 +27,7 @@ def bprint(text, **kwargs):
               'purple': '0;30;45',
               'white': '0;30;47'}
 
-    backgroundColor = colors[kvPairs['color']]
+    backgroundColor = colors[options['color']]
     print(f'\x1b[{backgroundColor}m' + str(text) + '\x1b[0m')
 
 
